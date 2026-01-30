@@ -1,0 +1,501 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* VARIÁVEIS */
+:root {
+  --bg-main: #fff5f7;
+  --bg-card: #ffffff;
+  --text-main: #1f1f1f;
+  --text-muted: #5f5f5f;
+  --accent-red: #9f1239;
+  --accent-pink: #ec4899;
+}
+
+/* GLOBAL */
+body {
+  font-family: 'Manrope', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.7;
+}
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 4rem 2rem;
+}
+
+.hero-content {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.hero h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(2.6rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+
+/* TEXTO COM GRADIENTE (CORRIGIDO) */
+.hero h1 span {
+  background: linear-gradient(90deg, var(--accent-red), var(--accent-pink));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  margin-top: 2rem;
+  max-width: 520px;
+  color: var(--text-muted);
+  font-size: 1.05rem;
+}
+
+.about {
+  padding: 6rem 2rem;
+  background-color: var(--bg-card);
+}
+
+.about-content {
+  max-width: 900px;
+  margin: auto;
+}
+
+.about h2 {
+  font-family: 'Syne', sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-red);
+}
+
+.about p {
+  max-width: 720px;
+  font-size: 1.05rem;
+  color: var(--text-muted);
+}
+
+/* PROJECTS */
+.projects {
+  padding: 6rem 2rem;
+}
+
+.projects h2 {
+  text-align: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 2.3rem;
+  margin-bottom: 3.5rem;
+  background: linear-gradient(90deg, var(--accent-red), var(--accent-pink));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.projects-grid {
+  max-width: 1100px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
+}
+
+.project-card {
+  background: var(--bg-card);
+  padding: 2.5rem;
+  border-radius: 18px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: 1px solid #ffcad9; /* Borda rosa escura */
+
+  /* Sombra permanente */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* OVERLAY DECORATIVO (CORRIGIDO COM Z-INDEX) */
+.project-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--accent-red), var(--accent-pink));
+  opacity: 0.05;
+  z-index: 0;
+}
+
+.project-card * {
+  position: relative;
+  z-index: 1;
+}
+
+.project-card.highlight {
+  transform: translateY(-10px);
+}
+
+.project-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-card p {
+  color: var(--text-muted);
+}
+
+.project-card:hover {
+  transform: translateY(-14px);
+  box-shadow: 0 30px 50px rgba(0, 0, 0, 0.08);
+}
+
+/* FOOTER */
+.footer {
+  background: linear-gradient(135deg, var(--accent-red), var(--accent-pink));
+  color: white;
+  text-align: center;
+  padding: 3.5rem 2rem;
+}
+
+.footer-message {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-links a {
+  color: white;
+  margin: 0 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.85;
+  transition: opacity 0.3s;
+}
+
+.social-links a:hover {
+  opacity: 1;
+}
+
+
+/* HERO SOCIAL LINKS - BLOQUINHOS ELEGANTES */
+.hero-social {
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.hero-social a {
+  font-family: 'Manrope', sans-serif;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: var(--accent-red);
+
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+
+  background: rgba(236, 72, 153, 0.08); /* rosa bem suave */
+  border: 1px solid rgba(159, 18, 57, 0.15);
+
+  transition: 
+    background 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.hero-social a:hover {
+  background: linear-gradient(
+    135deg,
+    rgba(159, 18, 57, 0.15),
+    rgba(236, 72, 153, 0.15)
+  );
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(255, 68, 68, 0.08);
+}
+
+a {
+  color: var(--accent-pink); /* ou use #ec4899 */
+  text-decoration: none; /* remove sublinhado */
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: var(--accent-red); /* efeito hover */
+}
+
+/* IMAGENS DE PRÉVIA DOS PROJETOS */
+.project-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover; /* mantém proporção e corta excesso */
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+/* Hover leve na imagem */
+.project-card:hover .project-img {
+  transform: scale(1.05);
+}
+
+/* HABILIDADES */
+.skills {
+  padding: 6rem 2rem;
+  background-color: #fff5f8; /* tom rosa suave */
+}
+
+.skills h2 {
+  text-align: center;
+  font-family: 'Syne', sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 2.5rem;
+  color: var(--accent-red);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 120px)); /* cards fixos */
+  gap: 1rem; /* mais próximos */
+  justify-content: center; /* centralizados */
+  align-items: center;
+}
+
+.skill-card {
+  width: 120px;       /* tamanho fixo */
+  height: 140px;      /* altura fixa */
+  background-color: #ffffff;
+  border: 1px solid rgba(159, 18, 57, 0.15);
+  border-radius: 12px;
+  padding: 1rem 0.5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+}
+
+.skill-img {
+  width: 50px;       /* tamanho uniforme da imagem */
+  height: 50px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+
+/* =======================
+   Tech Cards - Projetos
+   ======================= */
+.tech-icons {
+  display: flex;           /* Deixa os ícones em linha */
+  flex-wrap: wrap;         /* Quebra para linha seguinte se não couber */
+  gap: 10px;               /* Espaçamento entre os ícones */
+  margin: 10px 0;          /* Espaço acima e abaixo da seção */
+}
+
+.tech-card {
+  display: flex;           /* Para centralizar o conteúdo */
+  align-items: center;     /* Alinha verticalmente */
+  justify-content: center; /* Alinha horizontalmente */
+  width: 40px;             /* Tamanho fixo do card */
+  height: 40px;
+  border-radius: 8px;      /* Cantos arredondados */
+  background-color: #f0f0f0; /* Cor de fundo leve */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra suave */
+  transition: transform 0.2s, box-shadow 0.2s; /* Animação ao passar mouse */
+}
+
+.tech-card img {
+  max-width: 24px;         /* Tamanho máximo da imagem */
+  max-height: 24px;
+  object-fit: contain;     /* Mantém proporção da imagem */
+}
+
+.tech-card:hover {
+  transform: translateY(-3px); /* Leve movimento para cima */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra mais forte */
+}
+
+/* Responsivo: diminui tamanho em telas pequenas */
+@media (max-width: 480px) {
+  .tech-card {
+    width: 35px;
+    height: 35px;
+  }
+
+  .tech-card img {
+    max-width: 20px;
+    max-height: 20px;
+  }
+}
+
+/* =======================
+   Seção Sobre Mim
+   ======================= */
+.about {
+  padding: 60px 20px;
+  background-color: #fdfdfd; /* Fundo leve, neutro */
+  text-align: center;
+}
+
+.about h2 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: var(--accent-red);
+}
+
+.about-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px; /* Espaço entre texto e imagem */
+  flex-wrap: wrap; /* Responsivo: quebra em telas pequenas */
+}
+
+.about-text {
+  max-width: 500px;
+  text-align: left;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #444;
+}
+
+.about-text strong {
+  color: #9f1239; /* Destaque para seu nome */
+}
+
+.about-image img {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%; /* Foto em círculo */
+  object-fit: cover;
+  border: 4px solid #9f1239; /* Borda sutil */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.about-image img:hover {
+  transform: scale(1.05); /* Pequena animação ao passar o mouse */
+}
+
+
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .about-content {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .about-image img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+}
+
+.link-WhatsApp img{
+    height: 60px;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+}
+
+/* =======================
+   Seta animada minimalista
+   ======================= */
+.scroll-down {
+  display: block;
+  width: 30px;
+  height: 50px;
+  margin: 2rem auto 0;
+  text-align: center;
+  cursor: pointer;
+}
+
+.arrow {
+  width: 2px;                 /* linha vertical da seta */
+  height: 20px;
+  background: #9f1239;
+  margin: 0 auto;
+  position: relative;
+  animation: arrowBounce 1.5s infinite;
+}
+
+.arrow::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(45deg);
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #9f1239;
+  border-bottom: 2px solid #9f1239;
+}
+
+.arrow::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%) rotate(-45deg);
+  width: 10px;
+  height: 10px;
+  border-left: 2px solid #9f1239;
+  border-bottom: 2px solid #9f1239;
+}
+
+/* animação de descida suave */
+@keyframes arrowBounce {
+  0%, 20% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+  .scroll-down {
+    width: 20px;
+    height: 40px;
+  }
+
+  .arrow::after,
+  .arrow::before {
+    width: 6px;
+    height: 6px;
+  }
+}
+
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+}
